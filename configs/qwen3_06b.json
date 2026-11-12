@@ -1,0 +1,55 @@
+{
+  "data": {
+    "train": "../data/train.jsonl",
+    "val": "../data/val.jsonl",
+    "manifest": "../data/manifest.json",
+    "audit": "../data/audit.json",
+    "field_map": {},
+    "mode": "formal"
+  },
+  "window": {
+    "window_tokens": 2048,
+    "overlap_tokens": 256,
+    "diff_context_lines": 3,
+    "window_microbatch": 4,
+    "input_mode": "full_diff",
+    "window_checkpoint": true
+  },
+  "encoder": {
+    "model_id": "Qwen/Qwen3-Embedding-0.6B",
+    "revision": null,
+    "tokenizer_revision": null,
+    "device": "cuda",
+    "dtype": "bf16",
+    "adaptation": "lora",
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "quantization": "none"
+  },
+  "model": {
+    "architecture": "hierarchical",
+    "aggregation": "transformer",
+    "native_dim": 1024,
+    "projection_dim": 256,
+    "layers": 2,
+    "heads": 4,
+    "ffn_dim": 1024,
+    "dropout": 0.1,
+    "activation": "gelu",
+    "norm_first": true
+  },
+  "train": {
+    "lambda_fine": 1.0,
+    "effective_batch": 16,
+    "microbatch": 4,
+    "lora_lr": 0.0001,
+    "task_lr": 0.0003,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.05,
+    "clip_norm": 1.0,
+    "epochs": 10,
+    "patience": 3,
+    "seed": 0
+  }
+}

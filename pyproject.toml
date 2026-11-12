@@ -1,0 +1,28 @@
+[project]
+name = "model"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "kami-poi", email = "47322691+kami-poi@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = ["torch", "numpy", "safetensors", "scikit-learn"]
+
+[project.optional-dependencies]
+train = ["transformers>=4.51.0,<5", "peft"]
+quant = ["bitsandbytes"]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[project.scripts]
+model = "model:main"
+
+[[tool.uv.index]]
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = true
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"

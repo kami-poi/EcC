@@ -1,0 +1,2 @@
+# Keep the Linux launcher executable after a Windows checkout.
+scripts/run_ablations.sh text eol=lf
